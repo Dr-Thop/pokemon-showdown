@@ -328,10 +328,12 @@ export interface EventMethods {
 	onAnyAfterUseItem?: (this: Battle, item: Item, pokemon: Pokemon) => void;
 	onAnyAfterBoost?: (this: Battle, boost: SparseBoostsTable, target: Pokemon, source: Pokemon, effect: Effect) => void;
 	onAnyAfterFaint?: (this: Battle, length: number, target: Pokemon, source: Pokemon, effect: Effect) => void;
+	onAnyAfterMega?: (this: Battle, pokemon: Pokemon) => void;
 	onAnyAfterMoveSecondarySelf?: MoveEventMethods['onAfterMoveSecondarySelf'];
 	onAnyAfterMoveSecondary?: MoveEventMethods['onAfterMoveSecondary'];
 	onAnyAfterMove?: MoveEventMethods['onAfterMove'];
 	onAnyAfterMoveSelf?: CommonHandlers['VoidSourceMove'];
+	onAnyAfterTerastallization?: (this: Battle, pokemon: Pokemon) => void;
 	onAnyAttract?: (this: Battle, target: Pokemon, source: Pokemon) => void;
 	onAnyAccuracy?: (
 		this: Battle, accuracy: number, target: Pokemon, source: Pokemon, move: ActiveMove
@@ -357,7 +359,7 @@ export interface EventMethods {
 	onAnyHit?: MoveEventMethods['onHit'];
 	onAnyImmunity?: (this: Battle, type: string, pokemon: Pokemon) => void;
 	onAnyLockMove?: string | ((this: Battle, pokemon: Pokemon) => void | string);
-	onAnyMaybeTrapPokemon?: (this: Battle, pokemon: Pokemon) => void;
+	onAnyMaybeTrapPokemon?: (this: Battle, pokemon: Pokemon, source?: Pokemon) => void;
 	onAnyModifyAccuracy?: CommonHandlers['ModifierMove'];
 	onAnyModifyAtk?: CommonHandlers['ModifierSourceMove'];
 	onAnyModifyBoost?: (this: Battle, boosts: SparseBoostsTable, pokemon: Pokemon) => SparseBoostsTable | void;
